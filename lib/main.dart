@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waheed/core/components/app_colors.dart';
-import 'package:waheed/views/auth/welcom/login/view.dart';
+import 'package:waheed/views/auth/login/view.dart';
 import 'package:waheed/views/auth/welcom/view.dart';
 
 void main() async {
