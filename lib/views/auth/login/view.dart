@@ -32,176 +32,178 @@ class LoginView extends StatelessWidget {
                     top: Radius.circular(30.r),
                   ),
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'تسجيل الدخول',
-                      style: TextStyle(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primary,
-                      ),
-                    ),
-                    SizedBox(height: 8.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'ليس لديك حساب ؟ ',
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: AppColors.grey,
-                          ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'تسجيل الدخول',
+                        style: TextStyle(
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.primary,
                         ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Text(
-                            'إنشاء حساب جديد',
+                      ),
+                      SizedBox(height: 8.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'ليس لديك حساب ؟ ',
                             style: TextStyle(
                               fontSize: 14.sp,
-                              color: AppColors.greyText,
-                              fontWeight: FontWeight.bold,
+                              color: AppColors.grey,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 24.h),
-                    AppInput(
-                      title: 'البريد الإلكتروني',
-                      hintText: 'Name@example.com',
-                      keyboardType: TextInputType.emailAddress,
-                      prefixIcon: 'email.svg',
-                    ),
-                    AppInput(
-                      title: 'كلمة المرور',
-                      hintText: 'كلمة المرور',
-                      isPassword: true,
-                      bottomSpace: 8.h,
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Text(
-                          'هل نسيت كلمة المرور ؟',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: AppColors.greyText,
+                          GestureDetector(
+                            onTap: () {},
+                            child: Text(
+                              'إنشاء حساب جديد',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: AppColors.greyText,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 24.h),
+                      AppInput(
+                        title: 'البريد الإلكتروني',
+                        hintText: 'Name@example.com',
+                        keyboardType: TextInputType.emailAddress,
+                        prefixIcon: 'email.svg',
+                      ),
+                      AppInput(
+                        title: 'كلمة المرور',
+                        hintText: 'كلمة المرور',
+                        isPassword: true,
+                        bottomSpace: 8.h,
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            'هل نسيت كلمة المرور ؟',
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              color: AppColors.greyText,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 16.h),
-                    AppButton(text: 'تسجيل الدخول', onPressed: () {}),
-                    SizedBox(height: 16.h),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Divider(
-                            color: Colors.grey.shade300,
-                            thickness: 1,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16.w),
-                          child: Text(
-                            'أو تابع بواسطة',
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: AppColors.coolGrey,
+                      SizedBox(height: 16.h),
+                      AppButton(text: 'تسجيل الدخول', onPressed: () {}),
+                      SizedBox(height: 16.h),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Divider(
+                              color: Colors.grey.shade300,
+                              thickness: 1,
                             ),
                           ),
-                        ),
-                        Expanded(
-                          child: Divider(
-                            color: Colors.grey.shade300,
-                            thickness: 1,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 16.h),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: SizedBox(
-                            height: 56.h,
-                            child: OutlinedButton(
-                              onPressed: () {},
-                              style: OutlinedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16.r),
-                                ),
-                                side: const BorderSide(
-                                  color: Color(0xFFD1D5DB),
-                                  width: 1,
-                                ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.w),
+                            child: Text(
+                              'أو تابع بواسطة',
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: AppColors.coolGrey,
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  AppImage(
-                                    image: 'apple.svg',
-                                    width: 24.w,
-                                    height: 24.h,
+                            ),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              color: Colors.grey.shade300,
+                              thickness: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 16.h),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: SizedBox(
+                              height: 56.h,
+                              child: OutlinedButton(
+                                onPressed: () {},
+                                style: OutlinedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16.r),
                                   ),
-                                  SizedBox(width: 8.w),
-                                  Text(
-                                    'Apple',
-                                    style: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
+                                  side: const BorderSide(
+                                    color: Color(0xFFD1D5DB),
+                                    width: 1,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AppImage(
+                                      image: 'apple.svg',
+                                      width: 24.w,
+                                      height: 24.h,
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 16.w),
-                        Expanded(
-                          child: SizedBox(
-                            height: 56.h,
-                            child: OutlinedButton(
-                              onPressed: () {},
-                              style: OutlinedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16.r),
-                                ),
-                                side: const BorderSide(
-                                  color: Color(0xFFD1D5DB),
-                                  width: 1,
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  AppImage(
-                                    image: 'google.svg',
-                                    width: 24.w,
-                                    height: 24.h,
-                                  ),
-                                  SizedBox(width: 8.w),
-                                  Text(
-                                    'Google',
-                                    style: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
+                                    SizedBox(width: 8.w),
+                                    Text(
+                                      'Apple',
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 24.h),
-                  ],
+                          SizedBox(width: 16.w),
+                          Expanded(
+                            child: SizedBox(
+                              height: 56.h,
+                              child: OutlinedButton(
+                                onPressed: () {},
+                                style: OutlinedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16.r),
+                                  ),
+                                  side: const BorderSide(
+                                    color: Color(0xFFD1D5DB),
+                                    width: 1,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    AppImage(
+                                      image: 'google.svg',
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                    SizedBox(width: 8.w),
+                                    Text(
+                                      'Google',
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 24.h),
+                    ],
+                  ),
                 ),
               ),
             ),
