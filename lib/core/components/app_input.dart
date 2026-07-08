@@ -16,6 +16,8 @@ class AppInput extends StatefulWidget {
   final String title;
   final int maximumLines;
   final bool isrReadOnly;
+  final Widget? customLeftWidget;
+  final TextAlign? textAlign;
 
   const AppInput({
     super.key,
@@ -25,13 +27,15 @@ class AppInput extends StatefulWidget {
     this.onPressed,
     this.keyboardType,
     this.isPassword = false,
-    this.bottomSpace = 16,
+    this.bottomSpace,
     this.controller,
     this.onCountryCodeChanged,
     this.validator,
     this.hintText,
     this.maximumLines = 1,
     this.isrReadOnly = false,
+    this.customLeftWidget,
+    this.textAlign,
   });
 
   @override
@@ -44,84 +48,100 @@ class _AppInputState extends State<AppInput> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: widget.bottomSpace ?? 16.h),
+      padding: EdgeInsets.only(bottom: widget.bottomSpace ?? 12.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             widget.title,
             style: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 6.h),
           TextFormField(
+            textAlign: widget.textAlign ?? TextAlign.start,
             readOnly: widget.isrReadOnly,
             maxLines: widget.maximumLines,
             controller: widget.controller,
             validator: widget.validator,
             keyboardType: widget.keyboardType,
             obscureText: widget.isPassword && isHidden,
+            style: TextStyle(fontSize: 13.sp),
             decoration: InputDecoration(
+              isDense: true,
               filled: true,
               fillColor: Colors.white,
               counterText: "",
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 16.w,
-                vertical: 16.h,
+                vertical: 12.h,
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16.r),
+                borderRadius: BorderRadius.circular(12.r),
                 borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16.r),
+                borderRadius: BorderRadius.circular(12.r),
                 borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: AppColors.primary),
-                borderRadius: BorderRadius.circular(16.r),
+                borderRadius: BorderRadius.circular(12.r),
               ),
               hintText: widget.hintText,
               hintStyle: TextStyle(
-                color: Color(0xff939393),
+                color: const Color(0xff939393),
                 fontWeight: FontWeight.w400,
-                fontSize: 14.sp,
+                fontSize: 13.sp,
               ),
-              suffixIcon: widget.isPassword
-                  ? IconButton(
-                      icon: Icon(
-                        isHidden
-                            ? Icons.visibility_off_outlined
-                            : Icons.visibility_outlined,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          isHidden = !isHidden;
-                        });
-                      },
-                    )
-                  : widget.suffixIcon != null
-                  ? Padding(
-                      padding: EdgeInsets.all(16.r),
-                      child: AppImage(
-                        image: widget.suffixIcon!,
-                        color: Colors.grey,
-                        width: 18.w,
-                        height: 18.h,
-                      ),
-                    )
-                  : null,
+              prefixIconConstraints: BoxConstraints(
+                minWidth: 36.w,
+                minHeight: 36.h,
+              ),
+              suffixIconConstraints: BoxConstraints(
+                minWidth: 36.w,
+                minHeight: 36.h,
+              ),
+
+              suffixIcon:
+                  widget.customLeftWidget ??
+                  (widget.isPassword
+                      ? IconButton(
+                          padding: EdgeInsets.zero,
+                          icon: Icon(
+                            isHidden
+                                ? Icons.visibility_off_outlined
+                                : Icons.visibility_outlined,
+                            color: Colors.grey,
+                            size: 20.r,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isHidden = !isHidden;
+                            });
+                          },
+                        )
+                      : widget.suffixIcon != null
+                      ? Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          child: AppImage(
+                            image: widget.suffixIcon!,
+                            color: Colors.grey,
+                            width: 18.w,
+                            height: 18.h,
+                          ),
+                        )
+                      : null),
               prefixIcon: widget.prefixIcon != null
                   ? Padding(
-                      padding: EdgeInsets.all(12.r),
+                      padding: EdgeInsets.symmetric(horizontal: 10.w),
                       child: AppImage(
                         image: widget.prefixIcon!,
-                        width: 24,
-                        height: 24,
+                        width: 18.w,
+                        height: 18.h,
                       ),
                     )
                   : null,
