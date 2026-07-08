@@ -4,6 +4,10 @@ import 'package:waheed/core/components/app_button.dart';
 import 'package:waheed/core/components/app_colors.dart';
 import 'package:waheed/core/components/app_image.dart';
 import 'package:waheed/core/components/app_input.dart';
+import 'package:waheed/core/components/app_login_or_register.dart';
+import 'package:waheed/core/components/social_login.dart';
+import 'package:waheed/core/logic/helper_methods.dart';
+import 'package:waheed/views/auth/register/view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -25,7 +29,7 @@ class LoginView extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 42.h),
                 decoration: BoxDecoration(
                   color: AppColors.background,
                   borderRadius: BorderRadius.vertical(
@@ -45,30 +49,8 @@ class LoginView extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 8.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'ليس لديك حساب ؟ ',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              color: AppColors.grey,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Text(
-                              'إنشاء حساب جديد',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                color: AppColors.greyText,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 24.h),
+                      AppLoginOrRegister(),
+                      SizedBox(height: 16.h),
                       AppInput(
                         title: 'البريد الإلكتروني',
                         hintText: 'Name@example.com',
@@ -82,126 +64,20 @@ class LoginView extends StatelessWidget {
                         bottomSpace: 8.h,
                       ),
                       Align(
-                        alignment: Alignment.centerRight,
+                        alignment: Alignment.centerLeft,
                         child: GestureDetector(
                           onTap: () {},
                           child: Text(
                             'هل نسيت كلمة المرور ؟',
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              color: AppColors.greyText,
-                            ),
+                            style: TextStyle(fontSize: 12.sp),
                           ),
                         ),
                       ),
                       SizedBox(height: 16.h),
                       AppButton(text: 'تسجيل الدخول', onPressed: () {}),
                       SizedBox(height: 16.h),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Divider(
-                              color: Colors.grey.shade300,
-                              thickness: 1,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.w),
-                            child: Text(
-                              'أو تابع بواسطة',
-                              style: TextStyle(
-                                fontSize: 12.sp,
-                                color: AppColors.coolGrey,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Colors.grey.shade300,
-                              thickness: 1,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 16.h),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: SizedBox(
-                              height: 56.h,
-                              child: OutlinedButton(
-                                onPressed: () {},
-                                style: OutlinedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16.r),
-                                  ),
-                                  side: const BorderSide(
-                                    color: Color(0xFFD1D5DB),
-                                    width: 1,
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    AppImage(
-                                      image: 'apple.svg',
-                                      width: 24.w,
-                                      height: 24.h,
-                                    ),
-                                    SizedBox(width: 8.w),
-                                    Text(
-                                      'Apple',
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: 16.w),
-                          Expanded(
-                            child: SizedBox(
-                              height: 56.h,
-                              child: OutlinedButton(
-                                onPressed: () {},
-                                style: OutlinedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16.r),
-                                  ),
-                                  side: const BorderSide(
-                                    color: Color(0xFFD1D5DB),
-                                    width: 1,
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    AppImage(
-                                      image: 'google.svg',
-                                      width: 24.w,
-                                      height: 24.h,
-                                    ),
-                                    SizedBox(width: 8.w),
-                                    Text(
-                                      'Google',
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 24.h),
+                      SocialLogin(),
+                      SizedBox(height: 7.h),
                     ],
                   ),
                 ),
