@@ -3,7 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waheed/core/components/app_colors.dart';
 import 'package:waheed/views/auth/login/view.dart';
-import 'package:waheed/views/auth/welcom/view.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(393, 852),
+      designSize: const Size(402, 947),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
@@ -28,10 +28,7 @@ class MyApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          supportedLocales: const [
-            Locale('ar', 'EG'),
-            Locale('en', 'US'),
-          ],
+          supportedLocales: const [Locale('ar', 'EG'), Locale('en', 'US')],
           locale: const Locale('ar', 'EG'),
           themeMode: ThemeMode.system,
           theme: ThemeData(
@@ -66,7 +63,7 @@ class MyApp extends StatelessWidget {
               brightness: Brightness.dark,
             ),
           ),
-          home: const LoginView(), 
+          home: const LoginView(),
         );
       },
     );
