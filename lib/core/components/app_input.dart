@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'app_colors.dart';
 import 'app_image.dart';
 
@@ -111,13 +112,17 @@ class _AppInputState extends State<AppInput> {
                   (widget.isPassword
                       ? IconButton(
                           padding: EdgeInsets.zero,
-                          icon: Icon(
-                            isHidden
-                                ? Icons.visibility_off_outlined
-                                : Icons.visibility_outlined,
-                            color: Colors.grey,
-                            size: 20.r,
-                          ),
+                          icon: isHidden
+                              ? SvgPicture.asset(
+                                  'assets/icons/visibility_off.svg.svg',
+                                  width: 20.r,
+                                  height: 20.r,
+                                )
+                              : SvgPicture.asset(
+                                  'assets/icons/visibility_on.svg.svg',
+                                  width: 20.r,
+                                  height: 20.r,
+                                ),
                           onPressed: () {
                             setState(() {
                               isHidden = !isHidden;
