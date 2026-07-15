@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waheed/core/components/app_colors.dart';
-import 'package:waheed/views/auth/login/view.dart';
-
+import 'package:waheed/views/home/view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -63,7 +62,7 @@ class MyApp extends StatelessWidget {
               brightness: Brightness.dark,
             ),
           ),
-          home: const LoginView(),
+          home: const HomeView(),
         );
       },
     );
