@@ -36,6 +36,7 @@ dependencies:
   # Local Storage
   shared_preferences: ^2.2.3
   pin_code_fields: ^9.4.0
+  circular_countdown_timer: ^0.2.4
 
 dev_dependencies:
   flutter_test:
