@@ -64,7 +64,6 @@ class _AppImageState extends State<AppImage>
           if (widget.image.toLowerCase().endsWith("svg")) {
             child = SvgPicture.asset(
               "assets/icons/${widget.image}",
-              // التعديل الجديد لباكيدج السعف عشان يقبل تغيير اللون
               colorFilter: widget.color != null 
                   ? ColorFilter.mode(widget.color!, BlendMode.srcIn) 
                   : null,
