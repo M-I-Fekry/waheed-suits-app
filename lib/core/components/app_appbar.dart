@@ -4,16 +4,20 @@ import 'package:waheed/core/components/app_back.dart';
 
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final Widget? titleWidget; 
   final bool isCenter;
   final List<Widget>? actions;
   final Color? bgColor;
+  final bool showBack;
 
   const AppAppBar({
     super.key,
     this.title = "",
+    this.titleWidget,
     this.isCenter = true,
     this.actions,
     this.bgColor,
+    this.showBack = true, 
   });
 
   @override
@@ -22,7 +26,8 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: bgColor ?? Colors.white,
       elevation: 0,
       centerTitle: isCenter,
-      title: Text(
+      automaticallyImplyLeading: false, 
+      title: titleWidget ?? Text(
         title,
         style: TextStyle(
           fontSize: 18.sp,
@@ -30,7 +35,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: Colors.black,
         ),
       ),
-      leading: const AppBack(), 
+      leading: showBack ? const AppBack() : null, 
       actions: actions,
     );
   }
